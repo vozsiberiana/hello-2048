@@ -1,4 +1,4 @@
-FROM httpd:alpine
+FROM nginx:stable-alpine
 WORKDIR /opt/hello-2048
-COPY ./public_html/ /usr/local/apache2/htdocs
+COPY ./public_html/ /usr/share/nginx/html
 
