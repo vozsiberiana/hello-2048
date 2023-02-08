@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Connect to instance´) {
+        stage('Connect to instance') {
             USER = credentials('ssh-amazon')
 	    echo $USER   
 	}
