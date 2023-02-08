@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage ('Deploy') {
     	    steps{
-                 sshagent(credentials:['ssh-amazon']) {
+                 sshagent(credentials:['amazon-test']) {
                  sh 'ssh -o StrictHostKeyChecking=no ec2-user@3.248.195.102 uptime'
                  sh 'ssh -v ec2-user@3.248.195.102'
 		 sh 'ls'
