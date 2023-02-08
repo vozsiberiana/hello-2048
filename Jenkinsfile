@@ -3,8 +3,10 @@ pipeline {
 
     stages {
         stage('Connect to instance') {
-            USER = credentials('ssh-amazon')
-	    echo $USER   
+            steps {            
+		USER = credentials('ssh-amazon')
+	    	echo $USER   
+	    }
 	}
 	stage('Build') {
             steps {
