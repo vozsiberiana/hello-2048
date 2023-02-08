@@ -1,11 +1,13 @@
 pipeline {
+environment {
+	USER = credentials('ssh-amazon')
+}
     agent any
 
     stages {
         stage('Connect to instance') {
             steps {            
-		USER = credentials('ssh-amazon')
-	    	echo $USER   
+		echo "${USER}"   
 	    }
 	}
 	stage('Build') {
