@@ -17,7 +17,7 @@ pipeline {
             steps {
 		    echo "Start withcredentials"
 		withCredentials([string(credentialsId: 'vozsiberiana-github', variable: 'GIT_TOKEN')]) {
-                    echo "finish withcredentials ${GIT_TOKEN}"
+                    echo "finish withcredentials $GIT_TOKEN"
 		    sh 'echo ${GIT_TOKEN} | docker login ghcr.io -u vozsiberiana --password-stdin'
 		    sh 'docker-compose push'
                 }
