@@ -16,8 +16,8 @@ pipeline {
 			
             steps {
 		    echo "Start withcredentials"
-		withCredentials([string(credentialsId: 'vozsiberiana-github', variable: 'GIT_TOKEN')]) {
-                    echo "El token es  ${GIT_TOKEN}"
+		withCredentials([string(credentialsId: 'ssh-amazon', variable: 'ec2-user')]) {
+                    echo "El token es  ${ec2-user}"
 		    sh 'echo $GIT_TOKEN | docker login ghcr.io -u vozsiberiana --password-stdin'
 		    sh 'docker-compose push'
                 }
