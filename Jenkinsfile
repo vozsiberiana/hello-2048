@@ -13,7 +13,9 @@ pipeline {
             }
         }
         stage('Package') {
+			
             steps {
+		    echo "Start withcredentials"
 		withCredentials([string(credentialsId: 'vozsiberiana-github', variable: 'GIT_TOKEN')]) {
                     echo "El token es  ${GIT_TOKEN}"
 		    sh 'echo $GIT_TOKEN | docker login ghcr.io -u vozsiberiana --password-stdin'
