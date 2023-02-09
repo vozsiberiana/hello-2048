@@ -23,7 +23,7 @@ pipeline {
             steps {
                 sshagent(['ssh-amazon']) {
                     sh """
-                        ssh -o "StrictHostKeyChecking no" ec2-3-248-195-102.eu-west-1.compute.amazonaws.com id
+                        ssh -o "StrictHostKeyChecking no" ec2-user@3.248.195.102 'docker pull ghcr.io/vozsiberiana/hello-2048/hello-2048:v1 && docker run -td --rm -p 80:80 ghcr.io/vozsiberiana/hello-2048/hello-2048:v1'
                     """
                 }
             }
