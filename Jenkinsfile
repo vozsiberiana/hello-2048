@@ -15,7 +15,8 @@ pipeline {
         stage('Package') {
             steps {
 		withCredentials([string(credentialsId: 'vozsiberiana-github', variable: 'GIT_TOKEN')]) {
-                    sh 'echo $GIT_TOKEN | docker login ghcr.io -u vozsiberiana --password-stdin'
+                    sh 'echo ${GIT_TOKEN}'
+		    sh 'echo $GIT_TOKEN | docker login ghcr.io -u vozsiberiana --password-stdin'
 		    sh 'docker-compose push'
                 }
             }
