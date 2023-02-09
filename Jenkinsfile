@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Build'
+                sh 'docker-compose build'
             }
         }
         stage('Package') {
