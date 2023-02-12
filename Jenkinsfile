@@ -13,6 +13,7 @@ pipeline {
 		sh 'git tag 1.0.${BUILD_NUMBER}'
 		sh 'docker tag ghcr.io/vozsiberiana/hello-2048/hello-2048:v1 ghcr.io/vozsiberiana/hello-2048/hello-2048:1.0.${BUILD_NUMBER}'
             }
+        }
 	stage ('Push GIT') {
 	    steps {
 		sshagent(['GIT']) {
