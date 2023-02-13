@@ -17,7 +17,7 @@ pipeline {
 	stage ('Push GIT') {
 	    steps {
 		sshagent(['GIT']) {
-                    sh('git push git@github.com:vozsiberiana/hello-2048.git --tags')
+                    sh 'git push git@github.com:vozsiberiana/hello-2048.git --tags'
 		}
 	    }
         }
